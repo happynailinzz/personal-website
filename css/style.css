@@ -265,6 +265,11 @@ h1 {
     text-align: left;
 }
 
+.title-group > * {
+    display: block;
+    width: 100%;
+}
+
 .hero-text h1.gradient-text {
     font-size: 3rem;
     background: var(--gradient-blue-purple);
@@ -414,12 +419,10 @@ h1 {
     }
 
     .hero-text h1.gradient-text {
-        font-size: 2.5rem;
         text-align: center;
     }
     
     .hero-text .gradient-text.subtitle {
-        font-size: 1.3rem;
         text-align: center;
     }
 
@@ -445,7 +448,11 @@ h1 {
     }
     
     .title-group {
-        text-align: center;
+        text-align: center !important;
+    }
+    
+    .title-group > * {
+        text-align: center !important;
     }
     
     .hero-section {
