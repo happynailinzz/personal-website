@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="余炜勋推荐的精选书籍 - 涵盖商业实践、科技创新和传统文化">
+    <title>推荐书籍 - 余炜勋的个人网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 自定义图标样式 -->
+    <style>
+        /* 社交链接图标颜色 */
+        .social-links a {
+            color: #666;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">余炜勋</div>
+            <ul class="nav-links">
+                <li><a href="index.html">主页</a></li>
+                <li><a href="projects.html">操盘项目</a></li>
+                <li><a href="books.html" class="active">推荐书籍</a></li>
+                <li><a href="blog.html">博客文章推荐</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="books-hero">
+            <div class="container">
+                <h1 class="fade-in">推荐书籍</h1>
+                <p class="section-description fade-in">
+                    这里收录了我认为值得一读的好书，涵盖商业实践、科技创新、传统文化等领域。
+                    每一本都给我带来了深刻的启发，希望也能对你有所帮助。
+                </p>
+            </div>
+        </section>
+
+        <section class="books-filter">
+            <div class="container">
+                <div class="filter-tags fade-in">
+                    <button class="filter-tag active" data-filter="all">全部</button>
+                    <button class="filter-tag" data-filter="business">商业实践</button>
+                    <button class="filter-tag" data-filter="tech">科技创新</button>
+                    <button class="filter-tag" data-filter="culture">传统文化</button>
+                    <button class="filter-tag" data-filter="management">管理思维</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="books-grid-section">
+            <div class="container">
+                <div class="books-grid">
+                    <!-- 商业实践类书籍 -->
+                    <article class="book-card fade-in" data-category="business">
+                        <div class="book-image">
+                            <img src="images/books/covers/poor-charlie-almanack.jpg" alt="穷查理宝典" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>穷查理宝典</h2>
+                            <p class="book-author">作者/编者：彼得·考夫曼（核心思想来自查理·芒格）</p>
+                            <div class="book-description">
+                                <p>收录了查理·芒格的智慧箴言和思想精华，深入探讨多元思维模型和投资决策框架，是商业与投资领域的必读经典。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>多元思维模型</li>
+                                    <li>反向思考法则</li>
+                                    <li>长期价值投资</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/26831789/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 商业实践类书籍 -->
+                    <article class="book-card fade-in" data-category="business">
+                        <div class="book-image">
+                            <img src="images/books/covers/naval-almanack.jpg" alt="纳瓦尔宝典" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>纳瓦尔宝典</h2>
+                            <p class="book-author">作者：埃里克·乔根森</p>
+                            <div class="book-description">
+                                <p>收集了硅谷著名投资人纳瓦尔·拉维坎特关于财富、幸福和人生哲学的思考，提供了创造财富和实现个人自由的原则。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>财富创造原则</li>
+                                    <li>杠杆思维</li>
+                                    <li>幸福哲学</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/35876121/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 传统文化类书籍 -->
+                    <article class="book-card fade-in" data-category="culture">
+                        <div class="book-image">
+                            <img src="images/books/covers/art-of-war.jpg" alt="孙子兵法" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>孙子兵法</h2>
+                            <p class="book-author">作者：孙武</p>
+                            <div class="book-description">
+                                <p>中国古代军事著作，被誉为"兵学圣典"，其战略思想不仅适用于军事领域，也广泛应用于商业竞争和日常决策中。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>知己知彼</li>
+                                    <li>谋定后动</li>
+                                    <li>势与谋略</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/26917969/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 传统文化类书籍 -->
+                    <article class="book-card fade-in" data-category="culture">
+                        <div class="book-image">
+                            <img src="images/books/covers/analects.jpg" alt="论语" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>论语</h2>
+                            <p class="book-author">编纂：孔子弟子及再传弟子（核心思想来自孔子）</p>
+                            <div class="book-description">
+                                <p>记录了孔子及其弟子言行的语录集，是儒家学派的经典著作，其中的智慧对处世、为人、治国等方面提供了宝贵的指导。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>仁者思想</li>
+                                    <li>修身齐家</li>
+                                    <li>君子之道</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/26913479/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 传统文化类书籍 -->
+                    <article class="book-card fade-in" data-category="culture">
+                        <div class="book-image">
+                            <img src="images/books/covers/tao-te-ching.jpg" alt="道德经" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>道德经</h2>
+                            <p class="book-author">作者：老子</p>
+                            <div class="book-description">
+                                <p>道家经典著作，短短五千言阐述了"道"与"德"的哲学思想，强调无为而治和顺应自然的人生智慧。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>道法自然</li>
+                                    <li>无为而治</li>
+                                    <li>柔弱胜刚强</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/34437486/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 传统文化类书籍 -->
+                    <article class="book-card fade-in" data-category="culture">
+                        <div class="book-image">
+                            <img src="images/books/covers/chuanxi-lu.jpg" alt="传习录" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>传习录</h2>
+                            <p class="book-author">记录者：王阳明的弟子（核心思想来自王阳明）</p>
+                            <div class="book-description">
+                                <p>记录了明代思想家王阳明的言行和心学思想，强调"知行合一"和"致良知"，对个人修养和行动哲学有深刻启示。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>知行合一</li>
+                                    <li>致良知</li>
+                                    <li>心即理</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/30443660/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 传统文化类书籍 -->
+                    <article class="book-card fade-in" data-category="culture">
+                        <div class="book-image">
+                            <img src="images/books/covers/zizhi-tongjian.jpg" alt="资治通鉴" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>资治通鉴</h2>
+                            <p class="book-author">作者：司马光</p>
+                            <div class="book-description">
+                                <p>中国古代编年体通史巨著，记录了从战国至五代共1362年的历史，通过历史事件和人物故事呈现治国安邦的智慧。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>以史为鉴</li>
+                                    <li>治国之道</li>
+                                    <li>兴衰规律</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/34809067/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 商业实践类书籍 -->
+                    <article class="book-card fade-in" data-category="business">
+                        <div class="book-image">
+                            <img src="images/books/covers/super-symbol.jpg" alt="超级符号就是超级创意" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>超级符号就是超级创意</h2>
+                            <p class="book-author">作者：华杉，华楠</p>
+                            <div class="book-description">
+                                <p>探讨品牌营销和广告创意的本质，阐述符号学在商业传播中的应用，帮助企业创造深入人心的品牌符号。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>符号价值创造</li>
+                                    <li>品牌记忆点</li>
+                                    <li>创意思维方法</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/25779152/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 管理思维类书籍 -->
+                    <article class="book-card fade-in" data-category="management">
+                        <div class="book-image">
+                            <img src="images/books/covers/guns-germs-steel.jpg" alt="枪炮、病菌与钢铁" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>枪炮、病菌与钢铁</h2>
+                            <p class="book-author">作者：贾雷德·戴蒙德</p>
+                            <div class="book-description">
+                                <p>这部经典社科著作从环境和地理角度解释了不同文明发展的差异，探讨了人类社会发展的根本动力和历史趋势。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>地理决定论</li>
+                                    <li>文明竞争机制</li>
+                                    <li>技术扩散规律</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/35714810/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 管理思维类书籍 -->
+                    <article class="book-card fade-in" data-category="management">
+                        <div class="book-image">
+                            <img src="images/books/covers/innovators-dilemma.jpg" alt="创新者的窘境" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>创新者的窘境</h2>
+                            <p class="book-author">作者：克莱顿·克里斯坦森</p>
+                            <div class="book-description">
+                                <p>深入分析了为何优秀公司会在面对颠覆性技术时失败，提出了如何应对创新挑战的战略框架和解决方案。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>颠覆式创新理论</li>
+                                    <li>价值网络转移</li>
+                                    <li>资源分配困境</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/4243770/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 管理思维类书籍 -->
+                    <article class="book-card fade-in" data-category="management">
+                        <div class="book-image">
+                            <img src="images/books/covers/effective-executive.jpg" alt="卓有成效的管理者" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>卓有成效的管理者</h2>
+                            <p class="book-author">作者：彼得·德鲁克</p>
+                            <div class="book-description">
+                                <p>管理学经典著作，详细阐述了管理者如何通过时间管理、贡献导向和发挥他人所长等原则提高工作效率和组织绩效。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>时间管理法则</li>
+                                    <li>贡献导向思维</li>
+                                    <li>用人所长原则</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/1322025/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 商业实践类书籍 -->
+                    <article class="book-card fade-in" data-category="business">
+                        <div class="book-image">
+                            <img src="images/books/covers/positioning.jpg" alt="定位" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>定位</h2>
+                            <p class="book-author">作者：杰克·特劳特、阿尔·里斯</p>
+                            <div class="book-description">
+                                <p>市场营销经典著作，提出了品牌定位的核心理念，阐述了如何在消费者心智中建立独特位置的策略和方法。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>心智争夺战</li>
+                                    <li>品类第一原则</li>
+                                    <li>差异化策略</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/5421787/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 管理思维类书籍 -->
+                    <article class="book-card fade-in" data-category="management">
+                        <div class="book-image">
+                            <img src="images/books/covers/principles.jpg" alt="原则" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>原则</h2>
+                            <p class="book-author">作者：瑞·达利欧</p>
+                            <div class="book-description">
+                                <p>桥水基金创始人分享的人生和工作原则，提供了一套系统性的思考框架和决策方法，帮助个人和组织实现卓越。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>极度透明文化</li>
+                                    <li>系统性思维</li>
+                                    <li>基于原则的决策</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/27608239/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 商业实践类书籍 -->
+                    <article class="book-card fade-in" data-category="business">
+                        <div class="book-image">
+                            <img src="images/books/covers/variable.jpg" alt="变量系列" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>变量系列</h2>
+                            <p class="book-author">作者：何帆</p>
+                            <div class="book-description">
+                                <p>记录和解读中国社会经济发展关键变量的系列著作，通过深入调研和细致观察，揭示中国转型期的发展趋势和机遇。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>微观变量察觉</li>
+                                    <li>底层逻辑变革</li>
+                                    <li>社会经济新动能</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/series/50327" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 管理思维类书籍 -->
+                    <article class="book-card fade-in" data-category="management">
+                        <div class="book-image">
+                            <img src="images/books/covers/sapiens.jpg" alt="人类简史" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>人类简史</h2>
+                            <p class="book-author">作者：尤瓦尔·赫拉利</p>
+                            <div class="book-description">
+                                <p>以宏观视角讲述人类发展的全过程，从认知革命、农业革命到科学革命，探讨了塑造人类社会的关键因素和未来趋势。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>虚构故事的力量</li>
+                                    <li>三大革命理论</li>
+                                    <li>历史发展必然性</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/25985021/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+
+                    <!-- 传统文化类书籍 -->
+                    <article class="book-card fade-in" data-category="culture">
+                        <div class="book-image">
+                            <img src="images/books/covers/civilization.jpg" alt="文明：1000年—1029年" loading="lazy">
+                        </div>
+                        <div class="book-content">
+                            <h2>文明：1000年—1029年</h2>
+                            <p class="book-author">作者：罗振宇</p>
+                            <div class="book-description">
+                                <p>通过对宋代1000年至1029年的历史剖析，探讨了中华文明的演进特点，以及传统文化价值在当代的传承和创新。</p>
+                            </div>
+                            <div class="book-highlights">
+                                <h3>核心观点</h3>
+                                <ul>
+                                    <li>文明发展规律</li>
+                                    <li>治理智慧传承</li>
+                                    <li>历史与现代对照</li>
+                                </ul>
+                            </div>
+                            <a href="https://book.douban.com/subject/37125226/" target="_blank" rel="noopener noreferrer" class="book-link">了解更多</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <!-- 社交媒体 -->
+                <div class="footer-section">
+                    <h3>关注我</h3>
+                    <div class="social-links">
+                        <a href="https://search.bilibili.com/all?keyword=AI%20%E5%A4%A7%E6%A8%A1%E5%9E%8B&from_source=webtop_search&spm_id_from=333.1007&search_source=5" target="_blank" rel="noopener" title="哔哩哔哩">
+                            <i class="fab fa-bilibili"></i>
+                        </a>
+                        <a href="https://github.com/happynailinzz/industry-analysis" target="_blank" rel="noopener" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.xiaohongshu.com/search_result?keyword=%25E5%259B%25BD%25E5%25AD%25A6%25E5%25BE%25AE%25E7%259F%25AD%25E5%2589%25A7&source=web_explore_feed" target="_blank" rel="noopener" title="小红书">
+                            <i class="fas fa-book-open"></i>
+                        </a>
+                        <a href="https://www.zhihu.com/search?type=content&q=ai%20%E7%BC%96%E7%A8%8B" target="_blank" rel="noopener" title="知乎">
+                            <i class="fab fa-zhihu"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 联系方式 -->
+                <div class="footer-section">
+                    <h3>联系方式</h3>
+            <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 手机/微信：18566666774</p>
+                        <p><i class="fas fa-envelope"></i> 邮箱：183296@qq.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 地址：郑州市郑东新区商都路建正东方中心</p>
+                    </div>
+                </div>
+
+                <!-- 网站导航 -->
+                <div class="footer-section">
+                    <h3>网站导航</h3>
+                    <ul class="footer-nav">
+                        <li><a href="index.html">主页</a></li>
+                        <li><a href="projects.html">操盘项目</a></li>
+                        <li><a href="books.html" class="active">推荐书籍</a></li>
+                        <li><a href="blog.html">博客文章推荐</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 版权信息 -->
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> 余炜勋 | 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="余炜勋的博客文章推荐 - 分享商业思考、技术创新和管理经验">
+    <title>博客文章推荐 - 余炜勋的个人网站</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 自定义图标样式 -->
+    <style>
+        .icon-bilibili {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            background-image: url('data:image/svg+xml,<svg t="1710900648861" class="icon" viewBox="0 0 1129 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4180" width="200" height="200"><path d="M234.909 9.656a80.468 80.468 0 0 1 68.398 0 167.374 167.374 0 0 1 41.843 30.578l160.937 140.82h115.07l160.936-140.82a168.983 168.983 0 0 1 41.843-30.578A80.468 80.468 0 0 1 930.96 76.445a80.468 80.468 0 0 1-17.703 53.914 449.818 449.818 0 0 1-35.406 32.187 232.553 232.553 0 0 1-22.531 18.508h100.585a170.593 170.593 0 0 1 118.289 53.109 171.397 171.397 0 0 1 53.914 118.288v462.693a325.897 325.897 0 0 1-4.024 70.007 178.64 178.64 0 0 1-80.468 112.656 173.007 173.007 0 0 1-92.539 25.75h-738.7a341.186 341.186 0 0 1-72.421-4.024A177.835 177.835 0 0 1 28.91 939.065a172.202 172.202 0 0 1-27.36-92.539V388.662a360.498 360.498 0 0 1 0-66.789A177.03 177.03 0 0 1 162.487 178.64h105.414c-16.899-12.07-31.383-26.555-46.672-39.43a80.468 80.468 0 0 1-25.75-65.984 80.468 80.468 0 0 1 39.43-63.57M216.4 321.873a80.468 80.468 0 0 0-63.57 57.937 108.632 108.632 0 0 0 0 30.578v380.615a80.468 80.468 0 0 0 55.523 80.469 106.218 106.218 0 0 0 34.601 5.632h654.208a80.468 80.468 0 0 0 76.444-47.476 112.656 112.656 0 0 0 8.047-53.109v-354.06a135.187 135.187 0 0 0 0-38.625 80.468 80.468 0 0 0-52.304-54.719 129.554 129.554 0 0 0-49.89-8.047H254.22a268.764 268.764 0 0 0-37.82 0.805z" fill="currentColor" p-id="4181"></path><path d="M348.369 447.404a80.468 80.468 0 0 1 55.523 18.507 80.468 80.468 0 0 1 28.164 59.547v80.468a80.468 80.468 0 0 1-16.094 51.5 80.468 80.468 0 0 1-131.968-9.656 104.609 104.609 0 0 1-10.46-54.719v-80.468a80.468 80.468 0 0 1 70.007-67.593z m416.021 0a80.468 80.468 0 0 1 86.102 75.64v80.468a94.148 94.148 0 0 1-12.07 53.11 80.468 80.468 0 0 1-132.772 0 95.757 95.757 0 0 1-12.875-57.133V519.02a80.468 80.468 0 0 1 70.007-70.812z" fill="currentColor" p-id="4182"></path></svg>');
+            background-repeat: no-repeat;
+            background-size: contain;
+            vertical-align: -0.15em;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">余炜勋</div>
+            <ul class="nav-links">
+                <li><a href="index.html">主页</a></li>
+                <li><a href="projects.html">操盘项目</a></li>
+                <li><a href="books.html">推荐书籍</a></li>
+                <li><a href="blog.html" class="active">博客文章推荐</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-hero">
+            <div class="container">
+                <h1 class="fade-in">博客文章推荐</h1>
+                <p class="section-description fade-in">
+                    精选优质的商业咨询、技术创新和企业管理领域的文章。
+                    每篇文章都经过精心筛选，为您提供有价值的观点和见解。
+                </p>
+            </div>
+        </section>
+
+        <section class="blog-filter">
+            <div class="container">
+                <div class="filter-tags fade-in">
+                    <button class="filter-tag active" data-filter="all">全部</button>
+                    <button class="filter-tag" data-filter="business">商业思考</button>
+                    <button class="filter-tag" data-filter="tech">技术创新</button>
+                    <button class="filter-tag" data-filter="management">管理经验</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="blog-grid-section">
+            <div class="container">
+                <div class="blog-grid">
+                    <!-- 商业思考文章 -->
+                    <article class="blog-card fade-in" data-category="business">
+                        <div class="blog-image">
+                            <img src="images/blog/covers/xiaomi-future.jpg" alt="小米集团终局思考" loading="lazy">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">2024-03-20</span>
+                                <span class="blog-category">商业思考</span>
+                            </div>
+                            <h2>小米集团终局思考（完整版）</h2>
+                            <div class="blog-description">
+                                <p>深入分析小米集团的发展战略和未来方向，探讨其在智能制造和生态链建设方面的布局...</p>
+                            </div>
+                            <div class="blog-tags">
+                                <span class="blog-tag">小米</span>
+                                <span class="blog-tag">战略分析</span>
+                                <span class="blog-tag">智能制造</span>
+                            </div>
+                            <a href="https://mp.weixin.qq.com/s/pVhrk4kMFQhqntkWVzVtsw" class="read-more" target="_blank" rel="noopener">
+                                阅读全文
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 技术创新文章 -->
+                    <article class="blog-card fade-in" data-category="tech">
+                        <div class="blog-image">
+                            <img src="images/blog/covers/ai-trend.jpg" alt="AI大潮思考" loading="lazy">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">2024-03-18</span>
+                                <span class="blog-category">技术创新</span>
+                            </div>
+                            <h2>2025刘润年中大课：AI大潮近在眼前，到底怎么办？</h2>
+                            <div class="blog-description">
+                                <p>探讨人工智能浪潮下的机遇与挑战，为企业和个人提供AI时代的应对策略...</p>
+                            </div>
+                            <div class="blog-tags">
+                                <span class="blog-tag">AI</span>
+                                <span class="blog-tag">未来趋势</span>
+                                <span class="blog-tag">战略规划</span>
+                            </div>
+                            <a href="https://mp.weixin.qq.com/s/ZeUFFcDEOFpljn7x_Ae3og" class="read-more" target="_blank" rel="noopener">
+                                阅读全文
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 管理经验文章 -->
+                    <article class="blog-card fade-in" data-category="management">
+                        <div class="blog-image">
+                            <img src="images/blog/covers/future-trend.jpg" alt="浪潮应对" loading="lazy">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">2024-03-15</span>
+                                <span class="blog-category">管理经验</span>
+                            </div>
+                            <h2>面对一场必须接受的浪潮，普通人该怎么办</h2>
+                            <div class="blog-description">
+                                <p>分析当前技术变革浪潮下的机遇与挑战，为普通人提供实用的应对策略和建议...</p>
+                            </div>
+                            <div class="blog-tags">
+                                <span class="blog-tag">职业发展</span>
+                                <span class="blog-tag">变革管理</span>
+                                <span class="blog-tag">个人成长</span>
+                            </div>
+                            <a href="https://mp.weixin.qq.com/s/KF3QsdzrHgPzKt4kywyjtA" class="read-more" target="_blank" rel="noopener">
+                                阅读全文
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 技术创新文章 -->
+                    <article class="blog-card fade-in" data-category="tech">
+                        <div class="blog-image">
+                            <img src="images/blog/covers/mcp-guide.jpg" alt="MCP入门指南" loading="lazy">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">2024-03-12</span>
+                                <span class="blog-category">技术创新</span>
+                            </div>
+                            <h2>6000字+6个案例：写给普通人的MCP入门指南</h2>
+                            <div class="blog-description">
+                                <p>通过详实的案例分析和实践指导，帮助普通人快速掌握MCP技术的应用方法...</p>
+                            </div>
+                            <div class="blog-tags">
+                                <span class="blog-tag">MCP</span>
+                                <span class="blog-tag">技术指南</span>
+                                <span class="blog-tag">实践案例</span>
+                            </div>
+                            <a href="https://mp.weixin.qq.com/s/BjsoBsUxCzeqXZq46_nrog" class="read-more" target="_blank" rel="noopener">
+                                阅读全文
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 技术创新文章 -->
+                    <article class="blog-card fade-in" data-category="tech">
+                        <div class="blog-image">
+                            <img src="images/blog/covers/llm-war.jpg" alt="大模型竞争" loading="lazy">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">2024-03-10</span>
+                                <span class="blog-category">技术创新</span>
+                            </div>
+                            <h2>大模型"诸神之战"，落地才是赛点</h2>
+                            <div class="blog-description">
+                                <p>深入分析大模型技术的竞争格局，探讨AI落地应用的关键因素和实践策略...</p>
+                            </div>
+                            <div class="blog-tags">
+                                <span class="blog-tag">大模型</span>
+                                <span class="blog-tag">AI应用</span>
+                                <span class="blog-tag">技术落地</span>
+                            </div>
+                            <a href="https://mp.weixin.qq.com/s/3hniAeKrmihw2a3Sxi2NZg" class="read-more" target="_blank" rel="noopener">
+                                阅读全文
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 商业思考文章 -->
+                    <article class="blog-card fade-in" data-category="business">
+                        <div class="blog-image">
+                            <img src="images/blog/covers/low-altitude.jpg" alt="低空经济" loading="lazy">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">2024-03-08</span>
+                                <span class="blog-category">商业思考</span>
+                            </div>
+                            <h2>一文看懂低空经济产业链有哪些？六大特性是什么?</h2>
+                            <div class="blog-description">
+                                <p>全面解析低空经济产业链的构成要素和特点，探讨其发展前景和投资机会...</p>
+                            </div>
+                            <div class="blog-tags">
+                                <span class="blog-tag">低空经济</span>
+                                <span class="blog-tag">产业分析</span>
+                                <span class="blog-tag">投资机会</span>
+                            </div>
+                            <a href="https://mp.weixin.qq.com/s/oR8ELuyiKEYHLO5fQijFgA" class="read-more" target="_blank" rel="noopener">
+                                阅读全文
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 管理经验文章 -->
+                    <article class="blog-card fade-in" data-category="management">
+                        <div class="blog-image">
+                            <img src="images/blog/covers/three-qi.jpg" alt="三气修炼" loading="lazy">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">2024-03-05</span>
+                                <span class="blog-category">管理经验</span>
+                            </div>
+                            <h2>入世必通"三气"：大气、匪气、杀气</h2>
+                            <div class="blog-description">
+                                <p>探讨职场成功的三个关键特质，分享如何在职业发展中培养和运用这些特质...</p>
+                            </div>
+                            <div class="blog-tags">
+                                <span class="blog-tag">职场发展</span>
+                                <span class="blog-tag">个人成长</span>
+                                <span class="blog-tag">领导力</span>
+                            </div>
+                            <a href="https://mp.weixin.qq.com/s/xZgivzQ5XxWHsLDmZNU19g" class="read-more" target="_blank" rel="noopener">
+                                阅读全文
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 管理经验文章 -->
+                    <article class="blog-card fade-in" data-category="management">
+                        <div class="blog-image">
+                            <img src="images/blog/covers/munger-wisdom.jpg" alt="查理·芒格智慧" loading="lazy">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">2024-03-01</span>
+                                <span class="blog-category">管理经验</span>
+                            </div>
+                            <h2>查理·芒格：用"逆向思维"过好人生的10个智慧</h2>
+                            <div class="blog-description">
+                                <p>解读查理·芒格的逆向思维方法论，分享其在投资和生活中的智慧启示...</p>
+                            </div>
+                            <div class="blog-tags">
+                                <span class="blog-tag">思维方法</span>
+                                <span class="blog-tag">投资智慧</span>
+                                <span class="blog-tag">人生哲学</span>
+                            </div>
+                            <a href="https://mp.weixin.qq.com/s/eaAo_iMiR3a8VC3UOvVT1w" class="read-more" target="_blank" rel="noopener">
+                                阅读全文
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="pagination fade-in">
+                    <button type="button" class="prev-page" data-action="prev" disabled>上一页</button>
+                    <div class="page-numbers">
+                        <button type="button" class="page-number active" data-page="1">1</button>
+                        <button type="button" class="page-number" data-page="2">2</button>
+                        <button type="button" class="page-number" data-page="3">3</button>
+                    </div>
+                    <button type="button" class="next-page" data-action="next">下一页</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <!-- 社交媒体 -->
+                <div class="footer-section">
+                    <h3>关注我</h3>
+                    <div class="social-links">
+                        <a href="https://search.bilibili.com/all?keyword=AI%20%E5%A4%A7%E6%A8%A1%E5%9E%8B&from_source=webtop_search&spm_id_from=333.1007&search_source=5" target="_blank" rel="noopener" title="哔哩哔哩">
+                            <i class="fab fa-bilibili"></i>
+                        </a>
+                        <a href="https://github.com/happynailinzz/industry-analysis" target="_blank" rel="noopener" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.xiaohongshu.com/search_result?keyword=%25E5%259B%25BD%25E5%25AD%25A6%25E5%25BE%25AE%25E7%259F%25AD%25E5%2589%25A7&source=web_explore_feed" target="_blank" rel="noopener" title="小红书">
+                            <i class="fas fa-book-open"></i>
+                        </a>
+                        <a href="https://www.zhihu.com/search?type=content&q=ai%20%E7%BC%96%E7%A8%8B" target="_blank" rel="noopener" title="知乎">
+                            <i class="fab fa-zhihu"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 联系方式 -->
+                <div class="footer-section">
+                    <h3>联系方式</h3>
+            <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> 手机/微信：18566666774</p>
+                        <p><i class="fas fa-envelope"></i> 邮箱：183296@qq.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 地址：郑州市郑东新区商都路建正东方中心</p>
+                    </div>
+                </div>
+
+                <!-- 网站导航 -->
+                <div class="footer-section">
+                    <h3>网站导航</h3>
+                    <ul class="footer-nav">
+                        <li><a href="index.html">主页</a></li>
+                        <li><a href="projects.html">操盘项目</a></li>
+                        <li><a href="books.html">推荐书籍</a></li>
+                        <li><a href="blog.html" class="active">博客文章推荐</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 版权信息 -->
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> 余炜勋 | 保留所有权利</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+</html> 
