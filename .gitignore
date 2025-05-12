@@ -1,0 +1,25 @@
+# Python 虚拟环境
+.venv/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 本地自动化脚本和测试文件
+links.txt
+generate_articles_gemini_flash.py
+wechat_playwright_test.py
+
+# Node.js 依赖（如有）
+node_modules/
+
+# 日志和临时文件
+*.log
+*.tmp
+
+# macOS Finder 元数据
+.AppleDouble
+.LSOverride
+
+# Git 元数据（推送到 GitHub 时自动忽略）
+.git/

@@ -35,30 +35,66 @@
                             <h1 class="gradient-text">余炜勋</h1>
                             <div class="gradient-text subtitle">政企项目操盘 | 文化科技实践</div>
                         </div>
-                        <div class="intro-content">
-                            <div class="typewriter" id="typewriter">
-                                <div class="typewriter-line">
-                                    <p class="typewriter-text" id="line1">2006年 华中科技大学毕业，</p>
-                                </div>
-                                <div class="typewriter-line">
-                                    <p class="typewriter-text" id="line2">华为十年，教育十年，</p>
-                                </div>
-                                <div class="typewriter-line">
-                                    <p class="typewriter-text" id="line3">接下来，努力做一家可以传承的企业！</p>
-                                </div>
-                                <div class="typewriter-line">
-                                    <p class="typewriter-text" id="line4">专注于政企项目策划操盘和文化传承复兴。</p>
-                                </div>
-                                <div class="typewriter-line">
-                                    <p class="typewriter-text" id="line5">紧跟科技新兴风口、商业实践和文化传承创新</p>
-                                </div>
-                                <div class="typewriter-line">
-                                    <p class="typewriter-text" id="line6">低空经济创新平台CCO/文化传媒公司CEO</p>
-                                </div>
-                                <div class="typewriter-line">
-                                    <p class="typewriter-text" id="line7">欢迎交流合作！</p>
-                                </div>
-                            </div>
+                        <div class="intro-content" style="margin-top: 0.8em;">
+                            <div class="typewriter" id="typewriter"></div>
+                            <style>
+                            .typewriter-line { display: flex; align-items: center; min-height: 1.8em; }
+                            .typewriter-cursor {
+                                display: inline-block;
+                                width: 1ch;
+                                color: #2196f3;
+                                animation: blink 1s steps(1) infinite;
+                            }
+                            @keyframes blink {
+                                0%, 50% { opacity: 1; }
+                                51%, 100% { opacity: 0; }
+                            }
+                            </style>
+                            <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const lines = [
+                                    ' ',
+                                    '2006年 华中科技大学毕业，',
+                                    '华为十年，教育十年，',
+                                    '接下来，努力做一家可以传承的企业！',
+                                    '专注于政企项目策划操盘和文化传承复兴。',
+                                    '紧跟科技新兴风口、商业实践和文化传承创新',
+                                    '低空经济创新平台CCO/文化传媒公司CEO',
+                                    '欢迎交流合作！'
+                                ];
+                                const container = document.getElementById('typewriter');
+                                let lineIdx = 0;
+
+                                function typeLine() {
+                                    if (lineIdx >= lines.length) return;
+                                    let lineDiv = document.createElement('div');
+                                    lineDiv.className = 'typewriter-line';
+                                    let p = document.createElement('p');
+                                    p.className = 'typewriter-text';
+                                    let cursor = document.createElement('span');
+                                    cursor.className = 'typewriter-cursor';
+                                    cursor.textContent = '|';
+                                    lineDiv.appendChild(p);
+                                    lineDiv.appendChild(cursor);
+                                    container.appendChild(lineDiv);
+
+                                    let charIdx = 0;
+                                    let interval = setInterval(() => {
+                                        // 每次都用 slice 重新赋值，避免字符错乱
+                                        p.textContent = lines[lineIdx].slice(0, charIdx);
+                                        if (charIdx < lines[lineIdx].length) {
+                                            charIdx++;
+                                        } else {
+                                            clearInterval(interval);
+                                            cursor.style.display = 'none';
+                                            lineIdx++;
+                                            setTimeout(typeLine, 350);
+                                        }
+                                    }, 60);
+                                }
+                                typeLine();
+                            });
+                            </script>
                         </div>
                     </div>
                     <div class="hero-image">
@@ -131,51 +167,51 @@
             <div class="container">
                 <h2 class="section-title fade-in">推荐文章</h2>
                 <div class="blog-preview-grid">
-                    <!-- 商业思考文章 -->
+                    <!-- 技术创新文章（2024-05-10，AI Agent与GUI智能体） -->
                     <article class="blog-card fade-in">
-                        <img src="images/blog/covers/xiaomi-future.jpg" alt="小米集团终局思考" loading="lazy">
+                        <img src="images/blog/covers/ai-plan.jpg" alt="刘润分享学AI的3种人3种学法" loading="lazy">
                         <div class="blog-card-content">
                             <div class="blog-meta">
-                                <span class="blog-date">2024-03-20</span>
-                                <span class="blog-category">商业思考</span>
-                            </div>
-                            <h3>小米集团终局思考（完整版）</h3>
-                            <p class="blog-excerpt">深入分析小米集团的发展战略和未来方向，探讨其在智能制造和生态链建设方面的布局...</p>
-                            <a href="https://mp.weixin.qq.com/s/pVhrk4kMFQhqntkWVzVtsw" class="read-more" target="_blank" rel="noopener">
-                                阅读全文
-                                <span class="arrow">→</span>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- 技术创新文章 -->
-                    <article class="blog-card fade-in">
-                        <img src="images/blog/covers/ai-trend.jpg" alt="AI大潮思考" loading="lazy">
-                        <div class="blog-card-content">
-                            <div class="blog-meta">
-                                <span class="blog-date">2024-03-18</span>
+                                <span class="blog-date">2024-05-10</span>
                                 <span class="blog-category">技术创新</span>
                             </div>
-                            <h3>2025刘润年中大课：AI大潮近在眼前，到底怎么办？</h3>
-                            <p class="blog-excerpt">探讨人工智能浪潮下的机遇与挑战，为企业和个人提供AI时代的应对策略...</p>
-                            <a href="https://mp.weixin.qq.com/s/ZeUFFcDEOFpljn7x_Ae3og" class="read-more" target="_blank" rel="noopener">
+                            <h3>刘润分享学AI的3种人3种学法</h3>
+                            <p class="blog-excerpt">刘润将学习者分为 "普通用户""行业用户""专业用户" 三类，分别提出学习 AI 应采取 "用好工具提高效率""理解基础原理适应变化""学习专业知识精进技术" 的方法，并给出具体学习建议 。</p>
+                            <a href="https://mp.weixin.qq.com/s/eaguCBbA9TEiseyVLUdkhw" class="read-more" target="_blank" rel="noopener">
                                 阅读全文
                                 <span class="arrow">→</span>
                             </a>
                         </div>
                     </article>
 
-                    <!-- 管理经验文章 -->
+                    <!-- 商业思考文章（2024-03-20 小米集团终局思考） -->
                     <article class="blog-card fade-in">
-                        <img src="images/blog/covers/future-trend.jpg" alt="浪潮应对" loading="lazy">
+                        <img src="images/blog/covers/ai-progress.jpg" alt="Cursor官方下场谈Cursor正确用法" loading="lazy">
                         <div class="blog-card-content">
                             <div class="blog-meta">
-                                <span class="blog-date">2024-03-15</span>
-                                <span class="blog-category">管理经验</span>
+                                <span class="blog-date">2024-04-28</span>
+                                <span class="blog-category">技术创新</span>
                             </div>
-                            <h3>面对一场必须接受的浪潮，普通人该怎么办</h3>
-                            <p class="blog-excerpt">分析当前技术变革浪潮下的机遇与挑战，为普通人提供实用的应对策略和建议...</p>
-                            <a href="https://mp.weixin.qq.com/s/KF3QsdzrHgPzKt4kywyjtA" class="read-more" target="_blank" rel="noopener">
+                            <h3>Cursor官方下场谈Cursor正确用法</h3>
+                            <p class="blog-excerpt">官方首席设计师介绍正确使用Cursor的方法，并结合作者的实践经验进行解读，强调高效开发和避免代码混乱的重要性。</p>
+                            <a href="https://mp.weixin.qq.com/s/GBxv0f-QpRLDXYQYivQvyw" class="read-more" target="_blank" rel="noopener">
+                                阅读全文
+                                <span class="arrow">→</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 技术创新文章（2024-03-18 AI大潮思考） -->
+                    <article class="blog-card fade-in">
+                        <img src="images/blog/covers/ai-agent-gui.jpg" alt="AI Agent与GUI智能体：趋势与应用深度解读" loading="lazy">
+                        <div class="blog-card-content">
+                            <div class="blog-meta">
+                                <span class="blog-date">2024-05-10</span>
+                                <span class="blog-category">技术创新</span>
+                            </div>
+                            <h3>AI Agent与GUI智能体：趋势与应用深度解读</h3>
+                            <p class="blog-excerpt">深度解析AI Agent与GUI智能体的最新发展趋势、核心技术突破及实际应用案例，助力理解未来人机交互新范式。</p>
+                            <a href="https://chat.fellou.ai/report/5b0db6c2-3b52-4f03-9adf-ec1bf9de368e" class="read-more" target="_blank" rel="noopener">
                                 阅读全文
                                 <span class="arrow">→</span>
                             </a>
@@ -242,10 +278,7 @@
                 </div>
 
                 <!-- 留言列表 -->
-                <div class="messages-container fade-in">
-                    <h3>最新留言</h3>
-                    <div class="messages-list"></div>
-                </div>
+                <div class="messages-container fade-in" style="display:none;"></div>
             </div>
         </section>
     </main>
@@ -302,5 +335,27 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      window.handleSubmit = function(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+        const templateParams = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          subject: formData.get('subject'),
+          message: formData.get('message')
+        };
+        emailjs.send('service_alh5952', 'template_3euwj83', templateParams, 'lNWC7eT3L9YmuCh6K')
+          .then(function(response) {
+            alert('留言已发送，谢谢您的反馈！');
+            form.reset();
+          }, function(error) {
+            alert('发送失败，请稍后重试。');
+          });
+        return false;
+      }
+    </script>
 </body>
 </html> 
