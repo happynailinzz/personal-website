@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             const files = await fetchArticlesList();
             let metas = await Promise.all(files.map(fetchArticleMeta));
             metas = metas.filter(meta => meta && meta.date);
-            metas.sort((a, b) => b.date - a.date);
+            metas.sort((a, b) => new Date(b.date) - new Date(a.date));
             allMetas = metas;
             totalPages = Math.ceil(allMetas.length / ARTICLES_PER_PAGE);
         }
