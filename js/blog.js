@@ -1,128 +1,130 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const ITEMS_PER_PAGE = 9; // 每页显示9篇文章
-    const blogGrid = document.querySelector('.blog-grid');
-    const pagination = document.querySelector('.pagination');
-    const prevButton = pagination.querySelector('.prev-page');
-    const nextButton = pagination.querySelector('.next-page');
+document.addEventListener('DOMContentLoaded', async function() {
+    const blogGrid = document.getElementById('blog-grid');
+    if (!blogGrid) return;
+
+    // 读取 index.json
+    async function fetchArticlesList() {
+        const res = await fetch('articles/index.json');
+        return await res.json();
+    }
+
+    // 读取 md 文件并解析 YAML 头部
+    async function fetchArticleMeta(mdPath) {
+        const res = await fetch(mdPath);
+        const text = await res.text();
+        // 提取YAML头部
+        const match = text.match(/^---([\s\S]*?)---/);
+        if (!match) return null;
+        const meta = jsyaml.load(match[1]);
+        return meta;
+    }
+
+    // 日期格式化函数
+    function formatDate(date) {
+        if (typeof date === 'string') return date;
+        if (date instanceof Date) {
+            const y = date.getFullYear();
+            const m = String(date.getMonth() + 1).padStart(2, '0');
+            const d = String(date.getDate()).padStart(2, '0');
+            return `${y}-${m}-${d}`;
+        }
+        return '';
+    }
+
+    // 生成卡片HTML
+    function createCard(meta) {
+        return `
+        <article class="blog-card fade-in" data-category="${meta.category}">
+            <div class="blog-image">
+                <img src="${meta.cover}" alt="${meta.title}" loading="lazy">
+            </div>
+            <div class="blog-content">
+                <div class="blog-meta">
+                    <span class="blog-date">${formatDate(meta.date)}</span>
+                    <span class="blog-category">${meta.category}</span>
+                </div>
+                <h2>${meta.title}</h2>
+                <div class="blog-description">
+                    <p>${meta.description || ''}</p>
+                </div>
+                <ul class="blog-tags">
+                    ${(meta.tags || []).map(tag => `<li class="blog-tag">${tag}</li>`).join('')}
+                </ul>
+                <a href="${meta.link}" class="read-more" target="_blank" rel="noopener">
+                    阅读全文
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </article>
+        `;
+    }
+
+    // 每页显示文章数
+    const ARTICLES_PER_PAGE = 9;
     let currentPage = 1;
+    let totalPages = 1;
+    let allMetas = [];
 
-    // 刷新分页和显示
-    function refreshBlogCards() {
-        const blogCards = Array.from(document.querySelectorAll('.blog-card'));
-        const totalPages = Math.ceil(blogCards.length / ITEMS_PER_PAGE);
-        updatePagination(totalPages);
-        showPage(1);
-    }
-
-    // 显示指定页码的文章
-    function showPage(pageNum) {
-        const blogCards = Array.from(document.querySelectorAll('.blog-card'));
-        const start = (pageNum - 1) * ITEMS_PER_PAGE;
-        const end = start + ITEMS_PER_PAGE;
-        blogCards.forEach((card, index) => {
-            if (index >= start && index < end) {
-                card.style.display = '';
-                setTimeout(() => {
-                    card.classList.add('fade-in');
-                }, 50 * (index - start));
-            } else {
-                card.style.display = 'none';
-                card.classList.remove('fade-in');
-            }
-        });
-        // 更新页码按钮状态
-        const pageNumbers = pagination.querySelectorAll('.page-number');
-        pageNumbers.forEach(btn => {
-            btn.classList.toggle('active', parseInt(btn.dataset.page) === pageNum);
-        });
-        prevButton.disabled = pageNum === 1;
-        nextButton.disabled = pageNum === Math.ceil(blogCards.length / ITEMS_PER_PAGE);
-        currentPage = pageNum;
-    }
-
-    // 更新分页按钮
-    function updatePagination(totalPages) {
-        const pageNumbersContainer = pagination.querySelector('.page-numbers');
-        pageNumbersContainer.innerHTML = '';
+    // 生成分页按钮
+    function renderPagination() {
+        const pagination = document.querySelector('.pagination');
+        if (!pagination) return;
+        const pageNumbers = pagination.querySelector('.page-numbers');
+        if (!pageNumbers) return;
+        pageNumbers.innerHTML = '';
         for (let i = 1; i <= totalPages; i++) {
-            const button = document.createElement('button');
-            button.type = 'button';
-            button.className = 'page-number' + (i === 1 ? ' active' : '');
-            button.dataset.page = i;
-            button.textContent = i;
-            button.addEventListener('click', () => showPage(i));
-            pageNumbersContainer.appendChild(button);
-        }
-    }
-
-    // 绑定上一页/下一页按钮点击事件
-    prevButton.addEventListener('click', () => {
-        if (currentPage > 1) {
-            showPage(currentPage - 1);
-        }
-    });
-    nextButton.addEventListener('click', () => {
-        const blogCards = Array.from(document.querySelectorAll('.blog-card'));
-        const totalPages = Math.ceil(blogCards.length / ITEMS_PER_PAGE);
-        if (currentPage < totalPages) {
-            showPage(currentPage + 1);
-        }
-    });
-
-    // 处理分类筛选
-    const filterTags = document.querySelectorAll('.filter-tag');
-    filterTags.forEach(tag => {
-        tag.addEventListener('click', () => {
-            const category = tag.dataset.filter;
-            filterTags.forEach(t => t.classList.remove('active'));
-            tag.classList.add('active');
-            const blogCards = Array.from(document.querySelectorAll('.blog-card'));
-            blogCards.forEach(card => {
-                if (category === 'all' || card.dataset.category === category) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'page-number' + (i === currentPage ? ' active' : '');
+            btn.dataset.page = i;
+            btn.textContent = i;
+            btn.addEventListener('click', () => {
+                if (currentPage !== i) {
+                    currentPage = i;
+                    renderBlogCards();
                 }
             });
-            refreshBlogCards();
-        });
-    });
-
-    // 初始化显示第一页
-    refreshBlogCards();
-
-    // 时间格式化函数
-    function formatDate(dateStr) {
-        const date = new Date(dateStr);
-        if (isNaN(date)) return dateStr;
-        const y = date.getFullYear();
-        const m = String(date.getMonth() + 1).padStart(2, '0');
-        const d = String(date.getDate()).padStart(2, '0');
-        return `${y}-${m}-${d}`;
+            pageNumbers.appendChild(btn);
+        }
+        // 上一页/下一页按钮状态
+        const prevBtn = pagination.querySelector('.prev-page');
+        const nextBtn = pagination.querySelector('.next-page');
+        prevBtn.disabled = currentPage === 1;
+        nextBtn.disabled = currentPage === totalPages;
     }
 
-    // 自动加载 Markdown 文章并渲染为卡片
-    fetch('articles/index.json')
-      .then(res => res.json())
-      .then(files => {
-        files.forEach(file => {
-          fetch(file)
-            .then(res => res.text())
-            .then(md => {
-              const match = md.match(/^---([\s\S]+?)---([\s\S]*)$/);
-              if (match) {
-                const meta = jsyaml.load(match[1]);
-                const content = match[2].trim();
-                const firstParagraph = content.split(/\n\s*\n/)[0].trim();
-                const card = document.createElement('article');
-                card.className = 'blog-card fade-in';
-                card.setAttribute('data-category', meta.category || '');
-                card.innerHTML = `
-                  <div class=\"blog-image\">\n                    <img src=\"${meta.cover}\" alt=\"${meta.title}\" loading=\"lazy\">\n                  </div>\n                  <div class=\"blog-content\">\n                    <div class=\"blog-meta\">\n                      <span class=\"blog-date\">${formatDate(meta.date)}</span>\n                      <span class=\"blog-category\">${meta.category}</span>\n                    </div>\n                    <h2>${meta.title}</h2>\n                    <div class=\"blog-description\">\n                      <p>${firstParagraph}</p>\n                    </div>\n                    <ul class=\"blog-tags\">\n                      ${(meta.tags || []).map(tag => `<li class=\"blog-tag\">${tag}</li>`).join('')}\n                    </ul>\n                    <a href=\"${meta.link}\" class=\"read-more\" target=\"_blank\" rel=\"noopener\">\n                      阅读全文\n                      <span class=\"arrow\">→</span>\n                    </a>\n                  </div>\n                `;
-                blogGrid.prepend(card);
-                refreshBlogCards();
-              }
-            });
-        });
-      });
+    // 渲染所有文章卡片（分页）
+    async function renderBlogCards() {
+        blogGrid.innerHTML = '加载中...';
+        if (allMetas.length === 0) {
+            const files = await fetchArticlesList();
+            let metas = await Promise.all(files.map(fetchArticleMeta));
+            metas = metas.filter(meta => meta && meta.date);
+            metas.sort((a, b) => b.date - a.date);
+            allMetas = metas;
+            totalPages = Math.ceil(allMetas.length / ARTICLES_PER_PAGE);
+        }
+        // 分页
+        const startIdx = (currentPage - 1) * ARTICLES_PER_PAGE;
+        const endIdx = startIdx + ARTICLES_PER_PAGE;
+        const pageMetas = allMetas.slice(startIdx, endIdx);
+        blogGrid.innerHTML = pageMetas.map(meta => createCard(meta)).join('');
+        renderPagination();
+    }
+
+    // 上一页/下一页按钮事件
+    document.querySelector('.pagination .prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            renderBlogCards();
+        }
+    });
+    document.querySelector('.pagination .next-page').addEventListener('click', () => {
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderBlogCards();
+        }
+    });
+
+    renderBlogCards();
 }); 

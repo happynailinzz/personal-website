@@ -63,36 +63,33 @@
                                     '欢迎交流合作！'
                                 ];
                                 const container = document.getElementById('typewriter');
-                                let lineIdx = 0;
-
-                                function typeLine() {
+                                container.innerHTML = '';
+                                function typeLine(lineIdx) {
                                     if (lineIdx >= lines.length) return;
-                                    let lineDiv = document.createElement('div');
+                                    const lineDiv = document.createElement('div');
                                     lineDiv.className = 'typewriter-line';
-                                    let p = document.createElement('p');
+                                    const p = document.createElement('p');
                                     p.className = 'typewriter-text';
-                                    let cursor = document.createElement('span');
+                                    const cursor = document.createElement('span');
                                     cursor.className = 'typewriter-cursor';
                                     cursor.textContent = '|';
                                     lineDiv.appendChild(p);
                                     lineDiv.appendChild(cursor);
                                     container.appendChild(lineDiv);
-
                                     let charIdx = 0;
-                                    let interval = setInterval(() => {
-                                        // 每次都用 slice 重新赋值，避免字符错乱
-                                        p.textContent = lines[lineIdx].slice(0, charIdx);
-                                        if (charIdx < lines[lineIdx].length) {
+                                    function typeChar() {
+                                        if (charIdx <= lines[lineIdx].length) {
+                                            p.textContent = lines[lineIdx].slice(0, charIdx);
                                             charIdx++;
+                                            setTimeout(typeChar, 60);
                                         } else {
-                                            clearInterval(interval);
                                             cursor.style.display = 'none';
-                                            lineIdx++;
-                                            setTimeout(typeLine, 350);
+                                            setTimeout(() => typeLine(lineIdx + 1), 350);
                                         }
-                                    }, 60);
+                                    }
+                                    typeChar();
                                 }
-                                typeLine();
+                                typeLine(0);
                             });
                             </script>
                         </div>

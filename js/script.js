@@ -326,117 +326,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const categoryButtons = document.querySelectorAll('.category-btn');
     const paginationButtons = document.querySelectorAll('.pagination button');
 
-    // 博客文章数据（实际应用中应该从后端获取）
-    let blogPosts = [
-        {
-            id: 1,
-            title: 'AI驱动的数字化转型：企业实践指南',
-            category: 'transformation',
-            date: '2024-03-20',
-            excerpt: '探讨如何利用人工智能技术推动企业数字化转型，包括实施策略、挑战应对和最佳实践案例分析...',
-            tags: ['AI', '数字化转型', '企业创新'],
-            image: 'images/blog/ai-transformation.jpg'
-        },
-        {
-            id: 2,
-            title: '现代企业敏捷管理方法论',
-            category: 'management',
-            date: '2024-03-15',
-            excerpt: '深入探讨现代企业如何实施敏捷管理，提高团队效率和项目成功率，包含实际案例分析...',
-            tags: ['敏捷管理', '项目管理', '团队协作'],
-            image: 'images/blog/agile-management.jpg'
-        },
-        {
-            id: 3,
-            title: '区块链技术在企业中的创新应用',
-            category: 'tech',
-            date: '2024-03-10',
-            excerpt: '探索区块链技术如何在现代企业中发挥作用，包括供应链管理、金融服务和数据安全等领域的应用...',
-            tags: ['区块链', '技术创新', '企业应用'],
-            image: 'images/blog/blockchain.jpg'
-        },
-        {
-            id: 4,
-            title: '大数据分析与商业智能的融合',
-            category: 'tech',
-            date: '2024-03-08',
-            excerpt: '探讨大数据分析技术如何与商业智能相结合，帮助企业做出更明智的决策，提升竞争优势...',
-            tags: ['大数据', '商业智能', '数据分析'],
-            image: 'images/blog/big-data.jpg'
-        },
-        {
-            id: 5,
-            title: '创新文化：打造高效创新型组织',
-            category: 'innovation',
-            date: '2024-03-05',
-            excerpt: '分析如何在企业中培养创新文化，建立支持创新的组织结构和激励机制，促进持续创新...',
-            tags: ['创新文化', '组织管理', '团队建设'],
-            image: 'images/blog/innovation-culture.jpg'
-        },
-        {
-            id: 6,
-            title: '云原生架构转型实践',
-            category: 'transformation',
-            date: '2024-03-01',
-            excerpt: '分享企业级应用迁移到云原生架构的实践经验，包括技术选型、架构设计和最佳实践...',
-            tags: ['云原生', '架构设计', '技术转型'],
-            image: 'images/blog/cloud-native.jpg'
-        },
-        {
-            id: 7,
-            title: '数据驱动的产品决策',
-            category: 'management',
-            date: '2024-02-28',
-            excerpt: '探讨如何利用数据分析支持产品决策，优化产品策略，提升用户体验和商业价值...',
-            tags: ['产品管理', '数据分析', '决策优化'],
-            image: 'images/blog/data-driven.jpg'
-        },
-        {
-            id: 8,
-            title: '5G技术与物联网创新',
-            category: 'tech',
-            date: '2024-02-25',
-            excerpt: '深入分析5G技术在物联网领域的应用前景，探讨未来发展趋势和商业机会...',
-            tags: ['5G', '物联网', '技术创新'],
-            image: 'images/blog/5g-iot.jpg'
-        },
-        {
-            id: 9,
-            title: '企业数字化转型路线图',
-            category: 'transformation',
-            date: '2024-02-20',
-            excerpt: '为企业提供数字化转型的系统性指导，包括战略规划、实施步骤和关键成功因素...',
-            tags: ['数字化转型', '战略规划', '变革管理'],
-            image: 'images/blog/digital-roadmap.jpg'
-        },
-        {
-            id: 10,
-            title: '开放创新：突破传统创新边界',
-            category: 'innovation',
-            date: '2024-02-15',
-            excerpt: '探讨开放创新模式如何帮助企业突破创新瓶颈，整合外部资源，加速创新进程...',
-            tags: ['开放创新', '创新管理', '资源整合'],
-            image: 'images/blog/open-innovation.jpg'
-        },
-        {
-            id: 11,
-            title: '人工智能在客户服务中的应用',
-            category: 'tech',
-            date: '2024-02-10',
-            excerpt: '分析AI技术如何改革传统客户服务模式，提升服务质量和效率，降低运营成本...',
-            tags: ['人工智能', '客户服务', '服务创新'],
-            image: 'images/blog/ai-customer-service.jpg'
-        },
-        {
-            id: 12,
-            title: '敏捷领导力：数字时代的管理艺术',
-            category: 'management',
-            date: '2024-02-05',
-            excerpt: '探讨数字时代领导者需要具备的核心能力，以及如何培养和提升敏捷领导力...',
-            tags: ['领导力', '敏捷管理', '人才发展'],
-            image: 'images/blog/agile-leadership.jpg'
-        }
-    ];
 
     // 当前状态
     let currentState = {
@@ -533,7 +422,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updatePagination(totalPosts) {
         const totalPages = Math.ceil(totalPosts / currentState.postsPerPage);
         const paginationContainer = document.querySelector('.pagination');
-        
+        if (!paginationContainer) return; // 防止报错
         let paginationHTML = '';
         
         // 上一页按钮
@@ -577,14 +466,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 添加事件监听器
+    if (searchInput) {
     searchInput.addEventListener('input', handleSearch);
+    }
+    if (searchButton) {
     searchButton.addEventListener('click', handleSearch);
-    
+    }
+    if (categoryButtons && categoryButtons.length > 0) {
     categoryButtons.forEach(button => {
         button.addEventListener('click', () => {
             handleCategoryFilter(button.dataset.category);
         });
     });
+    }
 
     // 初始化渲染
     filterAndRenderPosts();

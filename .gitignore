@@ -4,11 +4,15 @@
 # 系统文件
 .DS_Store
 Thumbs.db
+.AppleDouble
+.LSOverride
 
 # 本地自动化脚本和测试文件
 links.txt
 generate_articles_gemini_flash.py
 wechat_playwright_test.py
+generate_static_cards_to_md.py
+convert_md_to_utf8.py
 
 # Node.js 依赖（如有）
 node_modules/
@@ -16,10 +20,28 @@ node_modules/
 # 日志和临时文件
 *.log
 *.tmp
+*.swp
+*.swo
 
 # macOS Finder 元数据
-.AppleDouble
-.LSOverride
+Icon?
 
 # Git 元数据（推送到 GitHub 时自动忽略）
 .git/
+
+# VSCode 配置
+.vscode/
+
+# 备份文件
+*~
+*.bak
+
+# 其它常见临时/敏感文件
+.env
+.env.*
+.idea/
+__pycache__/
+*.pyc
+
+# 不上传本地图片原始大文件（如有）
+images/raw/
