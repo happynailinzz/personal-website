@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第五章 融合创新：华为基于AI大模型与国产化平台的国企数智化转型策略</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --main-blue: #3b5cff;
+      --main-purple: #7c3aed;
+      --main-green: #43e97b;
+      --main-bg: #f7faff;
+      --card-bg: #fff;
+      --card-radius: 16px;
+      --card-shadow: 0 4px 24px #3b5cff0d;
+      --card-shadow-hover: 0 8px 32px #3b5cff22;
+      --highlight-blue: #eaf1ff;
+      --highlight-purple: #f5e6ff;
+      --highlight-yellow: #fffbe6;
+      --text-main: #222;
+      --text-grey: #888;
+      --text-light: #b0b8c9;
+    }
+    html, body {
+      background: var(--main-bg);
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 0 0 18px 18px;
+      box-shadow: 0 2px 12px #3b5cff0a;
+      margin-bottom: 2.5rem;
+    }
+    .nav-bar ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      gap: 1.5rem;
+    }
+    .nav-bar li {
+      border-radius: 10px;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .nav-bar a {
+      display: block;
+      padding: 0.7rem 1.2rem;
+      color: var(--main-blue);
+      font-weight: 700;
+      font-size: 1.08rem;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-bar a:hover, .nav-bar a:focus {
+      background: var(--highlight-blue);
+      color: var(--main-purple);
+      box-shadow: 0 2px 12px #3b5cff22;
+    }
+    .main-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.2rem 2.5rem 1.2rem;
+    }
+    .page-title {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: var(--main-blue);
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .page-subtitle {
+      font-size: 1.13rem;
+      color: var(--text-grey);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .page-meta {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.98rem;
+      margin-bottom: 2.2rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 2.2rem 2rem 2.2rem 2rem;
+      margin-bottom: 2.5rem;
+      animation: fadeInCard 0.8s cubic-bezier(.4,1.4,.6,1) both;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: var(--card-shadow-hover);
+      transform: translateY(-4px) scale(1.012);
+    }
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--main-blue);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+    }
+    .card-title i {
+      color: var(--main-purple);
+      font-size: 1.1em;
+    }
+    .card p, .card ul {
+      font-size: 1.08rem;
+      color: var(--text-main);
+      line-height: 2.1;
+      margin: 1.1rem 0;
+    }
+    .card ul {
+      padding-left: 1.2em;
+      margin: 0.5em 0 1.2em 0;
+    }
+    .highlight {
+      background: var(--highlight-blue);
+      color: var(--main-blue);
+      font-weight: 700;
+      border-radius: 6px;
+      padding: 0 0.35em;
+      margin: 0 0.1em;
+      font-size: 1.01em;
+      letter-spacing: 0.5px;
+      box-shadow: 0 1px 8px #3b5cff11;
+      display: inline-block;
+    }
+    .highlight-purple {
+      background: var(--highlight-purple);
+      color: var(--main-purple);
+    }
+    .highlight-yellow {
+      background: var(--highlight-yellow);
+      color: #b88600;
+    }
+    .card-flex {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .card-col {
+      flex: 1 1 320px;
+      min-width: 260px;
+    }
+    .svg-legend, .quote-card {
+      background: var(--card-bg);
+      color: var(--main-blue);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 1.5rem 2rem;
+      font-size: 1.13rem;
+      margin: 0 auto 2.2em auto;
+      text-align: center;
+      max-width: 900px;
+      font-weight: 500;
+      box-sizing: border-box;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .quote-card {
+      font-size: 1.12rem;
+      font-style: italic;
+      color: var(--main-purple);
+      border-left: 6px solid var(--main-purple);
+      text-align: left;
+      margin-top: 1.5em;
+    }
+    @media (max-width: 700px) {
+      .main-container { padding: 0 0.2rem 2rem 0.2rem; }
+      .card { padding: 1.2rem 0.5rem; }
+      .page-title { font-size: 1.3rem; }
+      .svg-legend, .quote-card {
+        padding: 1rem 0.5rem;
+        font-size: 1rem;
+        max-width: 98vw;
+      }
+      .card-flex { flex-direction: column; gap: 1.2rem; }
+    }
+    @keyframes fadeInCard {
+      0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+      100% { opacity: 1; transform: none; }
+    }
+    .footer {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.98rem;
+      padding: 2.2rem 0 1.2rem 0;
+      background: none;
+      margin-top: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="index.html">开篇语</a></li>
+      <li><a href="chapter1.html">国企实践</a></li>
+      <li><a href="chapter2.html">华为经验</a></li>
+      <li><a href="chapter3.html">大模型</a></li>
+      <li><a href="chapter4.html">国产化</a></li>
+      <li><a href="chapter5.html">AI+信创</a></li>
+      <li><a href="chapter6.html">展望</a></li>
+    </ul>
+  </nav>
+  <div class="main-container">
+    <div class="page-title">第五章 融合创新：华为基于AI大模型与国产化平台的国企数智化转型策略</div>
+    <div class="page-subtitle">AI+信创 · 协同创新 · 行业价值</div>
+    <div class="page-meta">
+      <span><i class="fa-regular fa-calendar"></i> 发布日期：2025年5月</span>
+      <span style="margin-left:1.5em"><i class="fa-solid fa-user"></i> 余炜勋</span>
+    </div>
+    <!-- AI大模型与国产化软硬件协同 -->
+    <section class="card" aria-label="协同效应">
+      <div class="card-title"><i class="fa-solid fa-link"></i> AI大模型与国产化软硬件协同</div>
+      <ul>
+        <li><span class="highlight highlight-blue">昇腾AI计算平台</span>为盘古大模型提供澎湃算力</li>
+        <li><span class="highlight highlight-purple">鲲鹏通用计算平台</span>、<span class="highlight highlight-yellow">欧拉OS</span>、高斯数据库为AI应用提供稳定安全底座</li>
+        <li>华为云Stack连接AI大模型与国产化基础设施，构建全栈协同优势</li>
+      </ul>
+    </section>
+    <!-- "AI+信创"解决方案与实践 -->
+    <section class="card" aria-label="AI+信创解决方案">
+      <div class="card-title"><i class="fa-solid fa-puzzle-piece"></i> "AI+信创"解决方案与实践</div>
+      <ul>
+        <li>华为云Stack将盘古大模型AI能力与国产化算力底座结合</li>
+        <li>已为央国企打造超<span class="highlight">15个</span>重点行业场景化解决方案</li>
+        <li>推出FusionPlant工业互联网平台、AI数据湖等创新平台</li>
+        <li>联合伙伴提供金融一体化、AI训推一体化等行业方案</li>
+      </ul>
+    </section>
+    <!-- 典型国企应用场景与价值 -->
+    <section class="card" aria-label="应用场景与价值">
+      <div class="card-title"><i class="fa-solid fa-industry"></i> 典型国企应用场景与价值</div>
+      <ul>
+        <li><span class="highlight highlight-blue">能源</span>：红柳林煤矿、宝德公司等实现智能生产、数字化基础设施</li>
+        <li><span class="highlight highlight-purple">制造</span>：海螺集团水泥大模型提升质量管控，中国一汽数字化转型云底座</li>
+        <li><span class="highlight highlight-yellow">金融</span>：广东省农信联社金融OCR大模型识别精度提升至<span class="highlight">91.0%</span></li>
+        <li>交通运输：深圳机场打造智慧未来机场，郑州铁路局AI检车系统</li>
+      </ul>
+      <p>昆仑技术等伙伴围绕"鲲鹏+昇腾"创新，应用于电信、金融、电力等国企。</p>
+    </section>
+    <!-- 关键引述/结论卡片 -->
+    <div class="quote-card">"AI+信创协同创新，助力国企实现智能化升级与自主可控，赋能千行百业高质量发展。"</div>
+  </div>
+  <footer class="footer">
+    <div>© 余炜勋 18566666774 报告版权所有</div>
+  </footer>
+</body>
+</html> 

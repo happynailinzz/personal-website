@@ -16,6 +16,14 @@ document.addEventListener('DOMContentLoaded', async function() {
         const match = text.match(/^---([\s\S]*?)---/);
         if (!match) return null;
         const meta = jsyaml.load(match[1]);
+        // 自动提取正文首段为 description（如果 YAML 没有 description 字段）
+        if (!meta.description) {
+            // YAML 头部结束后的内容
+            const afterYaml = text.slice(match[0].length).trim();
+            // 找到第一个非空行（正文首段）
+            const firstParagraph = afterYaml.split(/\r?\n/).find(line => line.trim().length > 0);
+            meta.description = firstParagraph || '';
+        }
         return meta;
     }
 

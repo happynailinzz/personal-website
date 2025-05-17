@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第四章 构建自主可控根基：华为国产化软硬件生态战略</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --main-blue: #3b5cff;
+      --main-purple: #7c3aed;
+      --main-green: #43e97b;
+      --main-bg: #f7faff;
+      --card-bg: #fff;
+      --card-radius: 16px;
+      --card-shadow: 0 4px 24px #3b5cff0d;
+      --card-shadow-hover: 0 8px 32px #3b5cff22;
+      --highlight-blue: #eaf1ff;
+      --highlight-purple: #f5e6ff;
+      --highlight-yellow: #fffbe6;
+      --text-main: #222;
+      --text-grey: #888;
+      --text-light: #b0b8c9;
+    }
+    html, body {
+      background: var(--main-bg);
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 0 0 18px 18px;
+      box-shadow: 0 2px 12px #3b5cff0a;
+      margin-bottom: 2.5rem;
+    }
+    .nav-bar ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      gap: 1.5rem;
+    }
+    .nav-bar li {
+      border-radius: 10px;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .nav-bar a {
+      display: block;
+      padding: 0.7rem 1.2rem;
+      color: var(--main-blue);
+      font-weight: 700;
+      font-size: 1.08rem;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-bar a:hover, .nav-bar a:focus {
+      background: var(--highlight-blue);
+      color: var(--main-purple);
+      box-shadow: 0 2px 12px #3b5cff22;
+    }
+    .main-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.2rem 2.5rem 1.2rem;
+    }
+    .page-title {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: var(--main-blue);
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .page-subtitle {
+      font-size: 1.13rem;
+      color: var(--text-grey);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .page-meta {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.98rem;
+      margin-bottom: 2.2rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 2.2rem 2rem 2.2rem 2rem;
+      margin-bottom: 2.5rem;
+      animation: fadeInCard 0.8s cubic-bezier(.4,1.4,.6,1) both;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: var(--card-shadow-hover);
+      transform: translateY(-4px) scale(1.012);
+    }
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--main-blue);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+    }
+    .card-title i {
+      color: var(--main-purple);
+      font-size: 1.1em;
+    }
+    .card p, .card ul {
+      font-size: 1.08rem;
+      color: var(--text-main);
+      line-height: 2.1;
+      margin: 1.1rem 0;
+    }
+    .card ul {
+      padding-left: 1.2em;
+      margin: 0.5em 0 1.2em 0;
+    }
+    .highlight {
+      background: var(--highlight-blue);
+      color: var(--main-blue);
+      font-weight: 700;
+      border-radius: 6px;
+      padding: 0 0.35em;
+      margin: 0 0.1em;
+      font-size: 1.01em;
+      letter-spacing: 0.5px;
+      box-shadow: 0 1px 8px #3b5cff11;
+      display: inline-block;
+    }
+    .highlight-purple {
+      background: var(--highlight-purple);
+      color: var(--main-purple);
+    }
+    .highlight-yellow {
+      background: var(--highlight-yellow);
+      color: #b88600;
+    }
+    .card-flex {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .card-col {
+      flex: 1 1 320px;
+      min-width: 260px;
+    }
+    .svg-legend, .quote-card {
+      background: var(--card-bg);
+      color: var(--main-blue);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 1.5rem 2rem;
+      font-size: 1.13rem;
+      margin: 0 auto 2.2em auto;
+      text-align: center;
+      max-width: 900px;
+      font-weight: 500;
+      box-sizing: border-box;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .quote-card {
+      font-size: 1.12rem;
+      font-style: italic;
+      color: var(--main-purple);
+      border-left: 6px solid var(--main-purple);
+      text-align: left;
+      margin-top: 1.5em;
+    }
+    @media (max-width: 700px) {
+      .main-container { padding: 0 0.2rem 2rem 0.2rem; }
+      .card { padding: 1.2rem 0.5rem; }
+      .page-title { font-size: 1.3rem; }
+      .svg-legend, .quote-card {
+        padding: 1rem 0.5rem;
+        font-size: 1rem;
+        max-width: 98vw;
+      }
+      .card-flex { flex-direction: column; gap: 1.2rem; }
+    }
+    @keyframes fadeInCard {
+      0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+      100% { opacity: 1; transform: none; }
+    }
+    .footer {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.98rem;
+      padding: 2.2rem 0 1.2rem 0;
+      background: none;
+      margin-top: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="index.html">开篇语</a></li>
+      <li><a href="chapter1.html">国企实践</a></li>
+      <li><a href="chapter2.html">华为经验</a></li>
+      <li><a href="chapter3.html">大模型</a></li>
+      <li><a href="chapter4.html">国产化</a></li>
+      <li><a href="chapter5.html">AI+信创</a></li>
+      <li><a href="chapter6.html">展望</a></li>
+    </ul>
+  </nav>
+  <div class="main-container">
+    <div class="page-title">第四章 构建自主可控根基：华为国产化软硬件生态战略</div>
+    <div class="page-subtitle">信创核心 · 国产生态 · 战略意义</div>
+    <div class="page-meta">
+      <span><i class="fa-regular fa-calendar"></i> 发布日期：2025年5月</span>
+      <span style="margin-left:1.5em"><i class="fa-solid fa-user"></i> 余炜勋</span>
+    </div>
+    <!-- 信创核心技术与生态 -->
+    <section class="card" aria-label="信创核心技术与生态">
+      <div class="card-title"><i class="fa-solid fa-microchip"></i> 信创核心技术与生态</div>
+      <ul>
+        <li><span class="highlight highlight-blue">鲲鹏</span>：ARM架构高性能通用CPU，超4500家合作伙伴</li>
+        <li><span class="highlight highlight-purple">昇腾</span>：AI处理器，支撑大模型训练与推理</li>
+        <li><span class="highlight highlight-yellow">欧拉OS</span>：服务器操作系统，装机量突破<span class="highlight">430万套</span></li>
+        <li><span class="highlight">高斯数据库</span>：企业级分布式数据库，高性能高安全</li>
+        <li>昇思MindSpore、ModelArts、ROMA、国产EDA工具等，构建自主可控数字根基</li>
+      </ul>
+    </section>
+    <!-- 国产化生态建设进展与挑战 -->
+    <section class="card" aria-label="生态进展与挑战">
+      <div class="card-title"><i class="fa-solid fa-seedling"></i> 国产化生态进展与挑战</div>
+      <ul>
+        <li>鲲鹏、昇腾生态持续扩大，合作伙伴、开发者数量大幅增长</li>
+        <li>欧拉OS装机量突破<span class="highlight">430万套</span></li>
+        <li>挑战：生态成熟度、应用丰富度、关键技术突破、高端人才短缺、市场推广等</li>
+      </ul>
+    </section>
+    <!-- 国产化平台的战略意义 -->
+    <section class="card" aria-label="战略意义">
+      <div class="card-title"><i class="fa-solid fa-shield-halved"></i> 国产化平台的战略意义</div>
+      <ul>
+        <li>保障供应链安全与技术自主可控</li>
+        <li>满足国企数据安全、信息保密等特殊要求</li>
+        <li>为数字经济发展提供坚实自主技术底座</li>
+        <li>推动AI等新兴技术在千行百业成熟应用</li>
+      </ul>
+    </section>
+    <!-- 关键引述/结论卡片 -->
+    <div class="quote-card">“华为'信创'战略目标是构建自主可控的数字根基，保障供应链安全。国产化平台为国企数智化转型提供坚实支撑。”</div>
+  </div>
+  <footer class="footer">
+    <div>© 余炜勋 18566666774 报告版权所有</div>
+  </footer>
+</body>
+</html> 

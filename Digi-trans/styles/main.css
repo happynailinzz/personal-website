@@ -1,0 +1,322 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: #f7f9fb;
+  color: #222;
+}
+
+.report-header {
+  background: linear-gradient(90deg, #0a2e5d 0%, #1e90ff 100%);
+  color: #fff;
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(30, 144, 255, 0.08);
+}
+.report-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.report-nav {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(30, 144, 255, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.report-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0 1rem;
+  align-items: center;
+}
+.report-nav > ul > li {
+  position: relative;
+  margin-right: 2rem;
+}
+.report-nav a {
+  display: block;
+  padding: 1rem 0.5rem;
+  color: #0a2e5d;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.report-nav a:hover,
+.report-nav a:focus {
+  color: #1e90ff;
+}
+.report-nav ul ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background: #fff;
+  min-width: 200px;
+  box-shadow: 0 4px 16px rgba(30, 144, 255, 0.08);
+  border-radius: 0 0 8px 8px;
+  z-index: 10;
+}
+.report-nav li:hover > ul,
+.report-nav li:focus-within > ul {
+  display: block;
+}
+.report-nav ul ul li {
+  margin: 0;
+}
+
+.report-main {
+  max-width: 1100px;
+  margin: 2rem auto 2rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(30, 144, 255, 0.06);
+  padding: 2rem 2rem 3rem 2rem;
+  min-height: 60vh;
+}
+
+.report-footer {
+  text-align: center;
+  color: #888;
+  font-size: 0.95rem;
+  padding: 1.5rem 0 1rem 0;
+  background: #f0f4f8;
+  border-top: 1px solid #e0e6ed;
+}
+
+/* 表格美化 */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(30,144,255,0.06);
+}
+.styled-table caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: 600;
+  color: #1e90ff;
+  margin-bottom: 0.5rem;
+}
+.styled-table th, .styled-table td {
+  border: 1px solid #e0e6ed;
+  padding: 0.7em 0.6em;
+  text-align: left;
+}
+.styled-table thead th {
+  background: #eaf4ff;
+  color: #0a2e5d;
+  font-weight: 700;
+}
+.styled-table tbody tr:nth-child(even) {
+  background: #f7f9fb;
+}
+.styled-table tbody tr:hover {
+  background: #e3f1ff;
+  transition: background 0.2s;
+}
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* 行业卡片美化 */
+.industry-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+.industry-card {
+  background: #f7f9fb;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(30,144,255,0.08);
+  padding: 1.2rem 1rem 1rem 1rem;
+  min-width: 220px;
+  flex: 1 1 260px;
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: 1px solid #e0e6ed;
+}
+.industry-card:hover {
+  box-shadow: 0 4px 24px rgba(30,144,255,0.16);
+  transform: translateY(-4px) scale(1.03);
+}
+.industry-card h4 {
+  margin-top: 0;
+  color: #1e90ff;
+  font-size: 1.1rem;
+}
+
+/* 分层结构图占位美化 */
+.arch-diagram-placeholder {
+  display: inline-block;
+  margin-left: 1rem;
+  padding: 0.3em 1.2em;
+  background: #f0f4f8;
+  border: 2px dashed #b0c4de;
+  color: #888;
+  border-radius: 8px;
+  font-size: 0.98em;
+  vertical-align: middle;
+}
+
+/* 引用sup tooltip样式 */
+sup[data-tooltip] {
+  position: relative;
+  cursor: pointer;
+}
+sup[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: 120%;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  padding: 0.3em 0.7em;
+  border-radius: 6px;
+  font-size: 0.95em;
+  white-space: nowrap;
+  z-index: 10;
+  opacity: 1;
+  pointer-events: none;
+}
+sup[data-tooltip]::after {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+/* 响应式设计 */
+@media (max-width: 900px) {
+  .report-main {
+    padding: 1rem 0.5rem 2rem 0.5rem;
+  }
+  .report-header h1 {
+    font-size: 1.3rem;
+  }
+  .report-nav > ul > li {
+    margin-right: 1rem;
+  }
+  .industry-cards {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .report-header {
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+  }
+  .report-header h1 {
+    font-size: 1rem;
+  }
+  .report-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.5rem 0.5rem;
+  }
+  .report-nav > ul > li {
+    margin-right: 0;
+    width: 100%;
+  }
+  .report-nav ul ul {
+    position: static;
+    min-width: 0;
+    box-shadow: none;
+    border-radius: 0;
+    background: #f7f9fb;
+  }
+  .report-main {
+    padding: 0.5rem 0.2rem 1rem 0.2rem;
+  }
+}
+
+/* 章节卡片统一科技蓝渐变色条样式 */
+.chapter-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(30,144,255,0.08);
+  margin: 2.5rem 0;
+  padding: 2.2rem 2rem 2.2rem 2rem;
+  transition: box-shadow 0.3s, transform 0.3s;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInCard 0.7s cubic-bezier(.4,1.4,.6,1) both;
+}
+.chapter-card:hover {
+  box-shadow: 0 8px 32px rgba(30,144,255,0.16);
+  transform: translateY(-2px) scale(1.01);
+}
+.chapter-card::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 5px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #1e90ff, #00c6fb 80%);
+  position: absolute;
+  top: 0;
+  left: 2rem;
+}
+@media (max-width: 700px) {
+  .chapter-card { padding: 1.2rem 0.5rem; }
+  .chapter-card::before { left: 0.5rem; }
+}
+@keyframes fadeInCard {
+  0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+  100% { opacity: 1; transform: none; }
+}
+
+/* 章节卡片头部美化 */
+.chapter-card-header {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  padding-left: 1.2rem;
+  border-radius: 18px 18px 0 0;
+  margin: -2.2rem -2rem 1.2rem -2rem;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 2px 12px rgba(30,144,255,0.07);
+}
+.chapter-index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-right: 1.1rem;
+}
+.chapter-index i {
+  margin-right: 0.4em;
+  font-size: 1.1em;
+}
+.chapter-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.chapter-color-0 { background: linear-gradient(90deg, #1e90ff, #00c6fb 80%); }
+.chapter-color-1 { background: linear-gradient(90deg, #00b894, #00c6fb 80%); }
+.chapter-color-2 { background: linear-gradient(90deg, #6c47ff, #1e90ff 80%); }
+.chapter-color-3 { background: linear-gradient(90deg, #ff9800, #ff5e62 80%); }
+.chapter-color-4 { background: linear-gradient(90deg, #00bcd4, #1e90ff 80%); }
+.chapter-color-5 { background: linear-gradient(90deg, #43e97b, #38f9d7 80%); }
+.chapter-color-6 { background: linear-gradient(90deg, #e74c3c, #fd746c 80%); }
+.chapter-color-7 { background: linear-gradient(90deg, #8e54e9, #4776e6 80%); }
+.chapter-color-8 { background: linear-gradient(90deg, #222, #1e90ff 80%); }
+@media (max-width: 700px) {
+  .chapter-card-header { margin: -1.2rem -0.5rem 1rem -0.5rem; padding-left: 0.5rem; height: 40px; }
+  .chapter-title { font-size: 1.05rem; }
+  .chapter-index { width: 36px; height: 36px; font-size: 1rem; }
+} 

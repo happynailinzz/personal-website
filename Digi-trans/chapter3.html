@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第三章 华为引领智能化升级：人工智能大模型的战略与实践</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --main-blue: #3b5cff;
+      --main-purple: #7c3aed;
+      --main-green: #43e97b;
+      --main-bg: #f7faff;
+      --card-bg: #fff;
+      --card-radius: 16px;
+      --card-shadow: 0 4px 24px #3b5cff0d;
+      --card-shadow-hover: 0 8px 32px #3b5cff22;
+      --highlight-blue: #eaf1ff;
+      --highlight-purple: #f5e6ff;
+      --highlight-yellow: #fffbe6;
+      --text-main: #222;
+      --text-grey: #888;
+      --text-light: #b0b8c9;
+    }
+    html, body {
+      background: var(--main-bg);
+      margin: 0;
+      padding: 0;
+      font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 0 0 18px 18px;
+      box-shadow: 0 2px 12px #3b5cff0a;
+      margin-bottom: 2.5rem;
+    }
+    .nav-bar ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem 0;
+      gap: 1.5rem;
+    }
+    .nav-bar li {
+      border-radius: 10px;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .nav-bar a {
+      display: block;
+      padding: 0.7rem 1.2rem;
+      color: var(--main-blue);
+      font-weight: 700;
+      font-size: 1.08rem;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-bar a:hover, .nav-bar a:focus {
+      background: var(--highlight-blue);
+      color: var(--main-purple);
+      box-shadow: 0 2px 12px #3b5cff22;
+    }
+    .main-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.2rem 2.5rem 1.2rem;
+    }
+    .page-title {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: var(--main-blue);
+      margin-top: 2.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .page-subtitle {
+      font-size: 1.13rem;
+      color: var(--text-grey);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .page-meta {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.98rem;
+      margin-bottom: 2.2rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 2.2rem 2rem 2.2rem 2rem;
+      margin-bottom: 2.5rem;
+      animation: fadeInCard 0.8s cubic-bezier(.4,1.4,.6,1) both;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: var(--card-shadow-hover);
+      transform: translateY(-4px) scale(1.012);
+    }
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--main-blue);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+    }
+    .card-title i {
+      color: var(--main-purple);
+      font-size: 1.1em;
+    }
+    .card p, .card ul {
+      font-size: 1.08rem;
+      color: var(--text-main);
+      line-height: 2.1;
+      margin: 1.1rem 0;
+    }
+    .card ul {
+      padding-left: 1.2em;
+      margin: 0.5em 0 1.2em 0;
+    }
+    .highlight {
+      background: var(--highlight-blue);
+      color: var(--main-blue);
+      font-weight: 700;
+      border-radius: 6px;
+      padding: 0 0.35em;
+      margin: 0 0.1em;
+      font-size: 1.01em;
+      letter-spacing: 0.5px;
+      box-shadow: 0 1px 8px #3b5cff11;
+      display: inline-block;
+    }
+    .highlight-purple {
+      background: var(--highlight-purple);
+      color: var(--main-purple);
+    }
+    .highlight-yellow {
+      background: var(--highlight-yellow);
+      color: #b88600;
+    }
+    .card-flex {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .card-col {
+      flex: 1 1 320px;
+      min-width: 260px;
+    }
+    .svg-legend, .quote-card {
+      background: var(--card-bg);
+      color: var(--main-blue);
+      border-radius: var(--card-radius);
+      box-shadow: var(--card-shadow);
+      padding: 1.5rem 2rem;
+      font-size: 1.13rem;
+      margin: 0 auto 2.2em auto;
+      text-align: center;
+      max-width: 900px;
+      font-weight: 500;
+      box-sizing: border-box;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .quote-card {
+      font-size: 1.12rem;
+      font-style: italic;
+      color: var(--main-purple);
+      border-left: 6px solid var(--main-purple);
+      text-align: left;
+      margin-top: 1.5em;
+    }
+    @media (max-width: 700px) {
+      .main-container { padding: 0 0.2rem 2rem 0.2rem; }
+      .card { padding: 1.2rem 0.5rem; }
+      .page-title { font-size: 1.3rem; }
+      .svg-legend, .quote-card {
+        padding: 1rem 0.5rem;
+        font-size: 1rem;
+        max-width: 98vw;
+      }
+      .card-flex { flex-direction: column; gap: 1.2rem; }
+    }
+    @keyframes fadeInCard {
+      0% { opacity: 0; transform: translateY(30px) scale(0.98); }
+      100% { opacity: 1; transform: none; }
+    }
+    .footer {
+      text-align: center;
+      color: var(--text-light);
+      font-size: 0.98rem;
+      padding: 2.2rem 0 1.2rem 0;
+      background: none;
+      margin-top: 2.5rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav-bar">
+    <ul>
+      <li><a href="index.html">开篇语</a></li>
+      <li><a href="chapter1.html">国企实践</a></li>
+      <li><a href="chapter2.html">华为经验</a></li>
+      <li><a href="chapter3.html">大模型</a></li>
+      <li><a href="chapter4.html">国产化</a></li>
+      <li><a href="chapter5.html">AI+信创</a></li>
+      <li><a href="chapter6.html">展望</a></li>
+    </ul>
+  </nav>
+  <div class="main-container">
+    <div class="page-title">第三章 华为引领智能化升级：人工智能大模型的战略与实践</div>
+    <div class="page-subtitle">AI大模型 · 盘古架构 · 行业赋能</div>
+    <div class="page-meta">
+      <span><i class="fa-regular fa-calendar"></i> 发布日期：2025年5月</span>
+      <span style="margin-left:1.5em"><i class="fa-solid fa-user"></i> 余炜勋</span>
+    </div>
+    <!-- AI大模型驱动数智化转型 -->
+    <section class="card" aria-label="AI大模型驱动">
+      <div class="card-title"><i class="fa-solid fa-rocket"></i> AI大模型驱动数智化转型</div>
+      <p>AI大模型凭借其通用性和潜力，成为企业迈向高阶智能化的核心引擎。未来企业AI竞争将围绕<span class="highlight highlight-blue">数据</span>、<span class="highlight highlight-purple">算法</span>、<span class="highlight highlight-yellow">算力</span>、<span class="highlight">场景</span>四大要素展开。</p>
+    </section>
+    <!-- 盘古大模型架构与核心能力 -->
+    <section class="card" aria-label="盘古大模型架构">
+      <div class="card-title"><i class="fa-solid fa-layer-group"></i> 盘古大模型架构与核心能力</div>
+      <ul>
+        <li><span class="highlight highlight-blue">“5+N+X”三层解耦架构</span>：L0基础大模型、L1行业大模型、L2场景大模型</li>
+        <li>盘古3.0/5.0：高质量合成数据、课程学习等创新训练策略</li>
+        <li>全栈自主技术融合：昇腾AI芯片、MindSpore、ModelArts等</li>
+        <li>支持私有化部署，灵活开发与行业深度适配</li>
+      </ul>
+      <p>典型能力：NLP、CV、多模态、预测、科学计算等，参数规模最高超千亿。</p>
+    </section>
+    <!-- 行业应用案例 -->
+    <section class="card" aria-label="行业应用案例">
+      <div class="card-title"><i class="fa-solid fa-briefcase"></i> 行业应用案例</div>
+      <ul>
+        <li><span class="highlight highlight-blue">能源</span>：盘古矿山大模型助力智能生产调度、安全监控，电力大模型应用于新能源预测等</li>
+        <li><span class="highlight highlight-purple">制造</span>：海螺集团水泥大模型提升质量管控，汽车制造数字化转型云底座</li>
+        <li><span class="highlight highlight-yellow">金融</span>：金融OCR大模型票证识别精度提升至<span class="highlight">91.0%</span></li>
+        <li>交通运输、政务等领域均有落地，强调可量化价值输出</li>
+      </ul>
+      <p>盘古大模型在国企落地，突出行业核心场景、与华为云Stack结合，推动智能化升级。</p>
+    </section>
+    <!-- 关键引述/结论卡片 -->
+    <div class="quote-card">“AI大模型是企业迈向智能化的核心驱动力。盘古大模型以行业为本，赋能千行百业，助力国企高质量发展。”</div>
+  </div>
+  <footer class="footer">
+    <div>© 余炜勋 18566666774 报告版权所有</div>
+  </footer>
+</body>
+</html> 
